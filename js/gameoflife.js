@@ -86,9 +86,7 @@ const printCells = (state) => {
 
 const getNeighborsOf = ([x, y]) => {
   let value = [x,y];
-  value.filter(element=>{
-    
-  })
+  value.filter(element=>{})
 };
 
 const getLivingNeighbors = (cell, state) => {};
