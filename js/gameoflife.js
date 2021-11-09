@@ -85,8 +85,11 @@ const printCells = (state) => {
 };
 
 const getNeighborsOf = ([x, y]) => {
-  let value = [x,y];
-  value.filter(element=>{})
+  const value = [];
+  value.push(x);
+ value.forEach(element=>{
+   console.log(element);
+ })
 };
 
 const getLivingNeighbors = (cell, state) => {};
