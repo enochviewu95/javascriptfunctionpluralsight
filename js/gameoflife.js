@@ -85,14 +85,43 @@ const printCells = (state) => {
 };
 
 const getNeighborsOf = ([x, y]) => {
-  const value = [];
-  value.push(x);
- value.forEach(element=>{
-   console.log(element);
- })
+
+  let xMax = x+1;
+  let yMax = y+1;
+  let yMin = y-1;
+  let xMin = x-1;
+
+  let neighborSet = [];
+
+  for(let i = xMin;i<=xMax; i++){
+    for(let j = yMin; j<=yMax; j++){
+      let values = [i,j];
+      neighborSet.push(values);
+    }
+  }
+
+  let output = neighborSet.filter(element=>{
+    if(element[0]===x && element[1] === y){
+      return false;
+    }
+    return true;
+  });
+
+  return output;
+
 };
 
-const getLivingNeighbors = (cell, state) => {};
+const getLivingNeighbors = (cell, state) => {
+  let neighboursOf = getNeighborsOf(cell);
+  let container = contains.bind(state);
+  let livingNeighbors = neighboursOf.filter(element=>{
+    if(container.call(state,element)){
+      return true;
+    }
+    return false;
+  });
+  return livingNeighbors;
+};
 
 const willBeAlive = (cell, state) => {};
 
